@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LiveWatch recording metadata v1",
+  "type": "object",
+  "required": ["schema_version", "session_id", "anchor_name", "room_id", "title", "started", "ended", "duration", "video_files", "segments", "events", "status"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "session_id": {"type": "string"},
+    "anchor_name": {"type": "string"},
+    "room_id": {"type": "string"},
+    "title": {"type": "string"},
+    "started": {"type": "string", "format": "date-time"},
+    "ended": {"type": ["string", "null"]},
+    "duration": {"type": "number", "minimum": 0},
+    "video_files": {"type": "array", "items": {"type": "string"}},
+    "segments": {"type": "array", "items": {"type": "object", "required": ["path", "status"], "properties": {"path": {"type": "string"}, "duration": {"type": "number"}, "video_codec": {"type": "string"}, "width": {"type": ["integer", "null"]}, "height": {"type": ["integer", "null"]}, "frame_rate": {"type": ["string", "null"]}, "audio_tracks": {"type": "integer"}, "status": {"type": "string"}}}},
+    "events": {"type": "array", "items": {"type": "object", "required": ["time", "type"]}},
+    "status": {"type": "string"}
+  }
+}

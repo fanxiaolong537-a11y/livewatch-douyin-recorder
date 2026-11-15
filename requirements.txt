@@ -1,0 +1,6 @@
+# Runtime and transitive versions constrained to the locally tested snapshot.
+-c requirements.lock.txt
+flet[desktop]==0.85.3
+streamget==4.0.10
+pystray==0.19.5
+pillow==11.3.0
