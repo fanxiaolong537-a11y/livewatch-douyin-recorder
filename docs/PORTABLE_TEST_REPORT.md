@@ -1,5 +1,25 @@
 # LiveWatch v0.1.1 Windows 便携测试版
 
+## 2026-11-15 GitHub Actions 验收
+
+发布提交 `70a8e1356e963271951c9ddf31a85965f99dae72` 在 GitHub `windows-latest` x64 Runner 使用 Python 3.11.9 完成测试和打包。前一轮有一个测试用系统默认编码读取 UTF-8 的中文 metadata，修正后重跑通过。
+
+| 验收项 | 实际结果 |
+| --- | --- |
+| pytest | 38 项通过，用时 47.95 秒 |
+| 自生成媒体录制 | 验证 FFmpeg 录制、停止保存、FFprobe 检测、TS 转 MP4、三路并发和本地断流续录 |
+| 中文及空格路径 | 测试媒体读写和启动自检在 Windows Runner 通过 |
+| EXE 启动验证 | 内置运行时导入、依赖检测及真实 Flet 客户端加载四页通过 |
+| 便携版发布 | v0.1.1 预发布包含 Windows x64 ZIP 和 SHA256 校验文件 |
+
+[Windows 构建及日志](https://github.com/fanxiaolong537-a11y/livewatch-douyin-recorder/actions/runs/43693033735) · [JUnit 测试报告](https://github.com/fanxiaolong537-a11y/livewatch-douyin-recorder/actions/runs/43693033735/artifacts/14153685753) · [Release](https://github.com/fanxiaolong537-a11y/livewatch-douyin-recorder/releases/tag/v0.1.1)
+
+发布 ZIP 的 SHA256 为 `4084d74fd5738a9668b4c383ea29330a308c637016f77b4a10609eff9defa4b0`。
+
+真实抖音解析与录制仍需本人或获授权的开播链接。Windows 10/11 用户电脑上的托盘、高 DPI、自启动、长时间录制和首次启动时的在线组件下载仍待实测。
+
+## 2026-11-14 本地构建记录
+
 日期：2026-11-14。此版本已经生成真正的 Windows x64 GUI 子系统 PE 启动程序 `LiveWatch.exe`，不再仅交付源码。它是原生 C 启动器＋官方 Windows Python 嵌入式运行时＋Windows wheels＋官方 Flet Windows 客户端的文件夹式分发。
 
 ## 已完成验证

@@ -1,12 +1,14 @@
 # LiveWatch 直播观察助手 v0.1.1
 
-已生成 Windows 10/11 x64 文件夹式便携测试版，入口为 **LiveWatch.exe**。无需安装Python、无需注册账号、无需GitHub登录。
+Windows 10/11 x64 文件夹式便携预发布版，入口为 **LiveWatch.exe**。运行软件无需安装 Python 或登录账号。通过私有仓库下载时，使用有访问权限的 GitHub 账号。
 
-**状态：真实Windows PE程序已生成；Linux核心测试和包结构检查通过；尚未完成Windows实机启动验收，不能承诺所有电脑均可正常运行。** 见 `docs/PORTABLE_TEST_REPORT.md`。
+**已在 GitHub Windows Runner 上通过 38 项测试、EXE 启动、依赖检测和 Flet 界面加载。** 详见 [Windows 验收记录](docs/PORTABLE_TEST_REPORT.md)。
+
+[下载 Windows x64 便携版](https://github.com/fanxiaolong537-a11y/livewatch-douyin-recorder/releases/download/v0.1.1/LiveWatch-Windows-x64.zip) · [SHA256 校验文件](https://github.com/fanxiaolong537-a11y/livewatch-douyin-recorder/releases/download/v0.1.1/SHA256SUMS.txt) · [发布页面](https://github.com/fanxiaolong537-a11y/livewatch-douyin-recorder/releases/tag/v0.1.1)
 
 ## 直接使用
 
-1. 完整解压 `LiveWatch-v0.1.1-Windows-x64.zip`，不要在ZIP预览窗口内直接运行，也不要只复制EXE。
+1. 完整解压 `LiveWatch-Windows-x64.zip`，不要在 ZIP 预览窗口内直接运行，也不要只复制 EXE。
 2. 将整个文件夹放到桌面或其他可写目录，双击 `LiveWatch.exe`。
 3. 首次启动自动准备录制组件，约105MB，保持联网即可。下载失败可在软件设置点击“一键准备录制组件”重试。
 4. 点击“添加主播 / 批量添加”，粘贴自己或获得授权的抖音直播链接。
@@ -43,15 +45,15 @@ FFmpeg/FFprobe由软件首次联网自动下载，无需手动安装；该压缩
 
 新便携路线：安装Zig 0.13.0，按 `scripts/build_portable.py` 获取固定资产并下载Windows wheel，再由 `scripts/assemble_portable.py` 组装。`scripts/launcher.c` 是完整可审阅启动器代码，`scripts/check_portable.py` 验证PE结构与资源。
 
-Windows Actions 已改为便携构建路线，包含原生 Windows GUI 冒烟测试，但本轮没有执行 Actions 或发布 Release。原始 PyInstaller 脚本保留为另一种构建方式。
+Windows Actions 执行源码测试、原生 EXE 和 Flet 界面冒烟测试，并生成 ZIP 和 SHA256。推送 `v*` 标签可触发预发布流程。原始 PyInstaller 脚本保留为另一种构建方式。
 
 ## 故障
 
-如果双击后退出，查看 `data/startup.log`；窗口能打开时在设置导出脱敏日志。没有Windows实机验证记录时，不将静态检查冒充启动成功。不需要为排错安装Python。
+如果双击后退出，查看 `data/startup.log`。窗口能打开时，可以在设置中导出脱敏日志。
 
 ## 已知限制与扩展
 
-Windows桌面行为、托盘、高DPI、自启动尚待实测；不支持自动重编码不兼容MP4的视频，失败保留TS；断线期间无法追回内容；异常关机残片不自动修复。平台接口会受网络和平台调整影响。
+Windows 10/11 用户电脑上的托盘、高 DPI、自启动和长时间录制尚待实测。不兼容 MP4 的视频在转封装失败时保留 TS。断线期间无法追回内容，异常关机残片不自动修复。平台接口会受网络和平台调整影响。
 
 V2先补齐Windows真实长稳和授权平台验证，再加Whisper、SRT、逐秒话术、片段标注和复盘报告。详见metadata schema和app/extensions.py。
 
