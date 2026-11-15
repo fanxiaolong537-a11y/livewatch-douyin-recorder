@@ -13,7 +13,7 @@ checked=0
 for p in (root/'_runtime').rglob('*.pyd'):pe(p);checked+=1
 for n in ['_app/main.py','_runtime/python311.dll','_runtime/python311.zip','_desktop/flutter_windows.dll','_desktop/data/icudtl.dat','_runtime/site-packages/streamget/js','licenses/Node-LICENSE.txt']:
     assert (root/n).exists(),n
-pth=(root/'_runtime/python311._pth').read_text();assert '../_app' in pth and 'site-packages' in pth
+pth=(root/'_runtime/python311._pth').read_text(encoding='utf-8');assert '../_app' in pth and 'site-packages' in pth
 # Verify every third-party DLL directly imported by the Flet frontend is shipped.
 text=subprocess.check_output(['objdump','-p',str(root/'_desktop/flet.exe')],text=True)
 shipped={p.name.lower() for p in (root/'_desktop').glob('*.dll')}

@@ -53,6 +53,12 @@ def main(cache,out):
             for name in z.namelist():
                 if not name.endswith('/') and any(x in Path(name).name.lower() for x in ('license','copying','notice')):
                     target=out/'licenses/wheels'/wheel.stem/Path(name).name;target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(z.read(name))
+    source=out/'源码与构建';source.mkdir(exist_ok=True)
+    for folder in ('app','core','storage','ui','utils','vendor','scripts','tests','docs','licenses','.github'):
+        shutil.copytree(ROOT/folder,source/folder,dirs_exist_ok=True,ignore=shutil.ignore_patterns('__pycache__','*.pyc'))
+    for path in ROOT.iterdir():
+        if path.is_file() and (path.suffix in ('.py','.txt','.md','.ps1','.toml') or path.name in ('LICENSE','.gitignore')):
+            shutil.copy(path,source/path.name)
     (out/'BUILD_MANIFEST.json').write_text(json.dumps(manifest,indent=2),encoding='utf-8')
     print(out)
 if __name__=='__main__':

@@ -48,7 +48,7 @@ async def test_real_record_stop_probe_remux(video,store,tmp_path):
     i=store.add('https://live.douyin.com/123'); t=store.task(i); info=StreamInfo('主播 中文','123','测试',True,str(video))
     session=RecordingSession(t,info,tmp_path/'空 格中文目录',store,segment_seconds=1)
     await session.start(str(video)); await asyncio.sleep(4); await session.finish('已停止')
-    meta=json.loads((session.directory/'metadata.json').read_text())
+    meta=json.loads((session.directory/'metadata.json').read_text(encoding='utf-8'))
     assert meta['duration']>0 and len(meta['segments'])>=2
     p=Path(meta['segments'][0]['path']); result=await probe(p)
     assert result['audio_tracks']==1 and result['width']==320
