@@ -6,6 +6,20 @@ Windows 10/11 x64 文件夹式便携预发布版，入口为 **LiveWatch.exe**�
 
 [下载 Windows x64 便携版和 SHA256 校验文件](https://github.com/fanxiaolong537-a11y/livewatch-douyin-recorder/releases)
 
+## 界面预览
+
+以下三张图按 v0.1.2 界面布局绘制，主播、录像和目录均为示例。
+
+![直播监控页：录制状态、磁盘空间和主播列表](docs/images/monitor.png)
+
+### 录像管理
+
+![录像管理页：按主播或日期搜索、播放和打开目录](docs/images/recordings.png)
+
+### 软件设置
+
+![软件设置页：录制参数、依赖组件和诊断日志](docs/images/settings.png)
+
 ## 直接使用
 
 1. 完整解压 `LiveWatch-Windows-x64.zip`，不要在 ZIP 预览窗口内直接运行，也不要只复制 EXE。
