@@ -11,7 +11,7 @@ HASHES={
 'node.zip':'bb819d6eb8f5bfda294bbc83a7e4ec6539da67c4233d54b0d655b9248b15e29d'}
 def main(cache,out):
     cache=Path(cache).resolve(); out=Path(out).resolve(); out.mkdir(parents=True,exist_ok=True)
-    manifest={'version':'0.1.1','assembly':'Windows embeddable Python + native PE launcher','assets':HASHES,'wheels':{}}
+    manifest={'version':'0.1.2','assembly':'Windows embeddable Python + native PE launcher','assets':HASHES,'wheels':{}}
     for name,digest in HASHES.items():
         if hashlib.sha256((cache/name).read_bytes()).hexdigest()!=digest: raise RuntimeError('Asset checksum mismatch: '+name)
     runtime=out/'_runtime'; runtime.mkdir(exist_ok=True)

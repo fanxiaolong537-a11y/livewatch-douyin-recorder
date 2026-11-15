@@ -64,7 +64,7 @@ jobs:
           path: release
       - uses: softprops/action-gh-release@3bb12739c298aeb8a4eeaf626c5b8d85266b0e65
         with:
-          tag_name: ${{ startsWith(github.ref, 'refs/tags/') && github.ref_name || 'v0.1.1' }}
+          tag_name: ${{ startsWith(github.ref, 'refs/tags/') && github.ref_name || 'v0.1.2' }}
           target_commitish: ${{ github.sha }}
           draft: false
           prerelease: true
@@ -73,7 +73,7 @@ jobs:
             release/LiveWatch-Windows-x64.zip
             release/SHA256SUMS.txt
           body: |
-            LiveWatch v0.1.1 便携测试版。请仅录制本人或已获授权的直播。
+            LiveWatch v0.1.2 更新了四页桌面界面，采用 macOS 风格的浅色侧栏、圆角卡片和状态标签。
             已内置 Python、界面和 Node.js，首次使用会自动准备 FFmpeg/FFprobe。
             包中不分发 FFmpeg/FFprobe，不含任何录制视频或用户凭据。
             CI 本地生成媒体测试不等于真实抖音平台兼容性验证。请阅读已知问题和测试报告。

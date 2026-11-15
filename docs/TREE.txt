@@ -43,6 +43,7 @@ LiveWatch/
   scripts/check_portable.py
   scripts/launcher.c
   scripts/package.py
+  scripts/package_portable.py
   scripts/platform_check.py
   scripts/smoke_windows.py
   storage/__init__.py
@@ -55,6 +56,7 @@ LiveWatch/
   tests/test_ui.py
   ui/__init__.py
   ui/desktop.py
+  ui/style.py
   utils/__init__.py
   utils/runtime.py
   vendor/__init__.py

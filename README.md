@@ -1,10 +1,10 @@
-# LiveWatch 直播观察助手 v0.1.1
+# LiveWatch 直播观察助手
 
-Windows 10/11 x64 文件夹式便携预发布版，入口为 **LiveWatch.exe**。运行软件无需安装 Python 或登录账号。通过私有仓库下载时，使用有访问权限的 GitHub 账号。
+Windows 10/11 x64 文件夹式便携预发布版，入口为 **LiveWatch.exe**。运行软件无需安装 Python 或登录账号。GitHub 发布页提供便携包和校验文件。
 
-**已在 GitHub Windows Runner 上通过 38 项测试、EXE 启动、依赖检测和 Flet 界面加载。** 详见 [Windows 验收记录](docs/PORTABLE_TEST_REPORT.md)。
+每个便携版通过 GitHub Windows Runner 测试和 EXE 启动验证后发布。历史结果见 [Windows 验收记录](docs/PORTABLE_TEST_REPORT.md)。
 
-[下载 Windows x64 便携版](https://github.com/fanxiaolong537-a11y/livewatch-douyin-recorder/releases/download/v0.1.1/LiveWatch-Windows-x64.zip) · [SHA256 校验文件](https://github.com/fanxiaolong537-a11y/livewatch-douyin-recorder/releases/download/v0.1.1/SHA256SUMS.txt) · [发布页面](https://github.com/fanxiaolong537-a11y/livewatch-douyin-recorder/releases/tag/v0.1.1)
+[下载 Windows x64 便携版和 SHA256 校验文件](https://github.com/fanxiaolong537-a11y/livewatch-douyin-recorder/releases)
 
 ## 直接使用
 

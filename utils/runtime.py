@@ -3,7 +3,7 @@ import os, sys, shutil, subprocess, re, json, logging, zipfile
 from pathlib import Path
 from logging.handlers import RotatingFileHandler
 
-VERSION = '0.1.1'
+VERSION = '0.1.2'
 
 def root_dir():
     if os.environ.get('LIVEWATCH_ROOT'): return Path(os.environ['LIVEWATCH_ROOT'])
